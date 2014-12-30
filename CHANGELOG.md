@@ -2,7 +2,7 @@
 
 ## v1.1.0 (not released)
 
-stuff coming soon...
+* Depends on `debconf` module, and therefore requires Ansible 1.6+ [GH-?]
 
 ## v1.0.1
 
