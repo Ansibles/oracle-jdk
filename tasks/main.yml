@@ -44,3 +44,13 @@
     name: "oracle-java{{oracle_jdk_java_version_default}}-set-default"
     state: present
     update_cache: yes
+
+- name: Install jdk_switcher as a shell function
+  get_url: url=https://raw.githubusercontent.com/michaelklishin/jdk_switcher/{{ oracle_jdk_switcher_version }}/jdk_switcher.sh
+           dest=/etc/profile.d/jdk_switcher.sh
+           mode=644
+  when: oracle_jdk_switcher_enabled
+
+- name: Use jdk_switcher to activate the default java version
+  shell: bash -lc 'jdk_switcher use oraclejdk{{ oracle_jdk_java_version_default }}'
+  when: oracle_jdk_switcher_enabled
