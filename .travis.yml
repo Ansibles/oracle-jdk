@@ -9,7 +9,7 @@ install:
 script:
   - echo localhost > inventory
   - ansible-playbook --syntax-check -i inventory test/playbook.yml
-  - ansible-playbook -i inventory test/playbook.yml --connection=local
+  - ansible-playbook -i inventory test/playbook.yml --connection=local -v
 env:
   global:
     - ANSIBLE_ROLES_PATH=$TRAVIS_BUILD_DIR/..
