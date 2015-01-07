@@ -8,9 +8,11 @@ install:
   - pip install ansible$ANSIBLE_VERSION
 script:
   - echo localhost > inventory
-  - ansible-playbook --syntax-check -i inventory test.yml
-  - ansible-playbook -e oracle_jdk_switcher_enabled=yes -i inventory test.yml --connection=local --sudo
+  - ansible-playbook --syntax-check -i inventory test/playbook.yml
+  - ansible-playbook -i inventory test/playbook.yml --connection=local
 env:
+  global:
+    - ANSIBLE_ROLES_PATH=$TRAVIS_BUILD_DIR/..
   matrix:
     - ANSIBLE_VERSION='==1.6.10' # latest minor release of minimal supported version
     - ANSIBLE_VERSION=''         # latest release available on pip repository

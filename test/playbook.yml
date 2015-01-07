@@ -1,0 +1,18 @@
+---
+- name: Install Oracle JDKs
+
+  hosts: all
+
+  sudo: yes
+  sudo_user: root
+
+  roles:
+    - { 
+        role: oracle-jdk,
+
+        oracle_jdk_switcher_enabled:      yes,
+        oracle_jdk_switcher_version:      'e501c74033e475a0b6938987d912cf0c4b0baa06',
+        oracle_jdk_java_versions:         [6, 7, 8],
+        oracle_jdk_java_version_default:  8
+      }
+
