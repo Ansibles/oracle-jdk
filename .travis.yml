@@ -9,7 +9,7 @@ install:
 script:
   - echo localhost > inventory
   - ansible-playbook --syntax-check -i inventory test.yml
-  - ansible-playbook -i inventory test.yml --connection=local --sudo
+  - ansible-playbook -e oracle_jdk_switcher_enabled=yes -i inventory test.yml --connection=local --sudo
 env:
   matrix:
     - ANSIBLE_VERSION='==1.6.10' # latest minor release of minimal supported version
