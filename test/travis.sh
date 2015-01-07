@@ -10,7 +10,7 @@ echo "check default version:"
 java -version 2>&1 | grep 'java version' | grep -wE 'java version "1.8.0_.*"' || exit 4
 
 echo "check that expected oracle java versions are available:"
-for JAVA_VERSION in 6 7 8
+for JAVA_VERSION in 7 8
 do
   echo "Switch to OracleJDK $JAVA_VERSION"
   jdk_switcher use oraclejdk$JAVA_VERSION
