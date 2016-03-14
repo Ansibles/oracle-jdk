@@ -37,7 +37,7 @@
     name: "oracle-java{{item}}-installer"
     state: present
     update_cache: yes
-  with_items: oracle_jdk_java_versions
+  with_items: '{{oracle_jdk_java_versions}}'
 
 - name: Oracle JDK | Set the default Java version
   apt:
